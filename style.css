@@ -1,0 +1,136 @@
+@import url('https://fonts.googleapis.com/css2?family=Sawarabi+Mincho&display=swap');
+
+* {
+    margin: 0;
+    box-sizing: border-box;
+}
+
+html {
+    font-family: 'Sawarabi Mincho', sans-serif;
+    color: #ddd;
+}
+
+body {
+    background: rgb(4,35,48);
+    background: linear-gradient(90deg, rgba(4,35,48,1) 0%, rgba(0,0,0,1) 0%, rgba(42,70,121,1) 100%, rgba(0,14,255,1) 100%);
+}
+
+#title {
+    text-align: center;
+    font-size: 4em;
+    border-bottom: solid;
+}
+
+.game-container {
+    display: flex;
+}
+
+.reward-container {
+   flex-grow: 1;
+   padding-left: 4em;
+   margin-top: 3em;
+}
+
+.reward-item {
+    font-size: 2em;
+    margin-bottom: 10px;
+}
+
+#five-thousand, #one-hundred-thousand, #one-million, #five-million {
+    color: #b38e0b;
+}
+
+.question-container {
+    flex-grow: 9;
+    margin-top: 5em;
+}
+
+.question {
+    display: block;
+    font-size: 3em;
+    margin: 0 10% 0 20%;
+    text-align: center;
+}
+
+.answer-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    padding: 4em 10% 0 20%;
+    grid-column-gap: 50px;
+    grid-row-gap: 50px;
+}
+
+#stop-button {
+    position: absolute;
+    left: 57%;
+    margin-top: 2em;
+    padding: 15px;
+    font-size: 2em;
+    text-align: center;
+    background-color: rgba(255, 255, 255, .2);
+    border: 2px solid rgba(255, 255, 255, .6);
+    color: rgba(255, 255, 255, .8);
+    cursor: pointer;
+    border-radius: 10px;
+}
+
+#new-game-button {
+    display: none;
+    position: absolute;
+    left: 55%;
+    margin-top: .5em;
+    padding: 8px;
+    font-size: 1.5em;
+    text-align: center;
+    background-color: rgba(255, 255, 255, .2);
+    border: 2px solid rgba(255, 255, 255, .6);
+    color: rgba(255, 255, 255, .8);
+    cursor: pointer;
+    border-radius: 10px;
+}
+
+#stop-button:hover, #new-game-button:hover {
+    background-color: rgba(255, 255, 255, .4);
+}
+
+.answer {
+    font-size: 1.5em;
+    border: solid;
+    border-radius: 10px;
+    padding: 15px;
+    text-align: center;
+    background-color: rgba(255, 255, 255, .1);
+    cursor: pointer;
+}
+
+.answer-hover:hover {
+    background-color: rgba(255, 255, 255, .2);
+}
+
+.selected-btn {
+    background-color: rgba(250, 162, 10, .8);
+}
+
+.correct-answer {
+    animation: blinker 1s infinite
+}
+
+@keyframes blinker {
+    0%, 49% {background-color: rgba(63, 148, 10, .7);}
+    50%, 100% {background-color: rgba(63, 148, 10, .4);}
+}
+
+.incorrect-answer {
+    background-color: rgba(186, 33, 22, .4)
+}
+
+.active-reward {
+    padding-left: .5em;
+    font-size: 2.5em;
+}
+
+#game-over-text {
+    text-align: center;
+    font-size: 2em;
+    margin-top: 1em;
+}
