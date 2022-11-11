@@ -1,4 +1,4 @@
-import data from "./data.json" assert {type: "json"}
+import data from "./data.js"
 
 let roundCounter = 0
 const rand = () => Math.floor(Math.random() * data.questions.length)
