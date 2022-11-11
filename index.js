@@ -1,4 +1,4 @@
-import data from "./data.js"
+import data from "./data.json" assert {type: "json"}
 
 let roundCounter = 0
 const rand = () => Math.floor(Math.random() * data.questions.length)
@@ -51,7 +51,7 @@ const resetCSSClasses = () => {
     Array.from(document.querySelector(".answer-container").children).map(element => {
         element.classList.remove("incorrect-answer", "correct-answer", "selected-btn")
         element.classList.add("answer-hover")
-        element.style.cursor = "pointer"
+        element.style.pointerEvents = "auto"
     })
 
     document.getElementById("stop-button").style.display = "block"
@@ -101,7 +101,7 @@ const handleAnswerButtons = (correctAnswer) => {
             setAnswerButtonsToDefault()
             document.getElementById("stop-button").style.display = "none"
             document.querySelectorAll(".answer").forEach(classElement => {
-                classElement.style.cursor = "none"
+                classElement.style.pointerEvents = "none"
                 classElement.classList.remove("answer-hover")
             })
             event.target.classList.add("selected-btn")
@@ -134,11 +134,11 @@ const round = () => {
     removeAnswerBtnEventListeners()
     let number = rand()
     let alreadyAnswered = displayQuestion(data.questions[number])
-    if(alreadyAnswered){
-        round()
-    } else {
-    data.questions[number].answered = true
+    while(alreadyAnswered){
+        number = rand()
+        alreadyAnswered = displayQuestion(data.questions[number])
     }
+    data.questions[number].answered = true
     handleAnswerButtons(data.questions[number].answers.find(element => element.correct === true).answer)
     Array.from(document.querySelector(".reward-container").children)[roundCounter].classList.add("active-reward")
 }
