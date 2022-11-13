@@ -277,7 +277,7 @@ const data = {
                 },
                 {
                     answer: "Tim Cook",
-                    corect: true
+                    correct: true
                 },
                 {
                     answer: "Mark Zuckerberg",
